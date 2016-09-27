@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Intent</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region,
+.host .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #abb2bf;
+}
+.comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.comment .markup.link {
+  color: #5c6370;
+}
+.entity.name.type {
+  color: #e5c07b;
+}
+.entity.other.inherited-class {
+  color: #98c379;
+}
+.keyword {
+  color: #c678dd;
+}
+.keyword.control {
+  color: #c678dd;
+}
+.keyword.operator {
+  color: #abb2bf;
+}
+.keyword.other.special-method {
+  color: #61afef;
+}
+.keyword.other.unit {
+  color: #d19a66;
+}
+.storage {
+  color: #c678dd;
+}
+.storage.type.annotation,
+.storage.type.primitive {
+  color: #c678dd;
+}
+.storage.modifier.package,
+.storage.modifier.import {
+  color: #abb2bf;
+}
+.constant {
+  color: #d19a66;
+}
+.constant.variable {
+  color: #d19a66;
+}
+.constant.character.escape {
+  color: #56b6c2;
+}
+.constant.numeric {
+  color: #d19a66;
+}
+.constant.other.color {
+  color: #56b6c2;
+}
+.constant.other.symbol {
+  color: #56b6c2;
+}
+.variable {
+  color: #e06c75;
+}
+.variable.interpolation {
+  color: #be5046;
+}
+.variable.parameter {
+  color: #abb2bf;
+}
+.string {
+  color: #98c379;
+}
+.string.regexp {
+  color: #56b6c2;
+}
+.string.regexp .source.ruby.embedded {
+  color: #e5c07b;
+}
+.string.other.link {
+  color: #e06c75;
+}
+.punctuation.definition.comment {
+  color: #5c6370;
+}
+.punctuation.definition.method-parameters,
+.punctuation.definition.function-parameters,
+.punctuation.definition.parameters,
+.punctuation.definition.separator,
+.punctuation.definition.seperator,
+.punctuation.definition.array {
+  color: #abb2bf;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #61afef;
+}
+.punctuation.definition.bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #be5046;
+}
+.punctuation.section.method,
+.punctuation.section.class,
+.punctuation.section.inner-class {
+  color: #abb2bf;
+}
+.support.class {
+  color: #e5c07b;
+}
+.support.type {
+  color: #56b6c2;
+}
+.support.function {
+  color: #56b6c2;
+}
+.support.function.any-method {
+  color: #61afef;
+}
+.entity.name.function {
+  color: #61afef;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #e5c07b;
+}
+.entity.name.section {
+  color: #61afef;
+}
+.entity.name.tag {
+  color: #e06c75;
+}
+.entity.other.attribute-name {
+  color: #d19a66;
+}
+.entity.other.attribute-name.id {
+  color: #61afef;
+}
+.meta.class {
+  color: #e5c07b;
+}
+.meta.class.body {
+  color: #abb2bf;
+}
+.meta.method-call,
+.meta.method {
+  color: #abb2bf;
+}
+.meta.definition.variable {
+  color: #e06c75;
+}
+.meta.link {
+  color: #d19a66;
+}
+.meta.require {
+  color: #61afef;
+}
+.meta.selector {
+  color: #c678dd;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.meta.tag {
+  color: #abb2bf;
+}
+.underline {
+  text-decoration: underline;
+}
+.none {
+  color: #abb2bf;
+}
+.invalid.deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.invalid.illegal {
+  color: #ffffff !important;
+  background-color: #e05252 !important;
+}
+.markup.bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #c678dd;
+}
+.markup.deleted {
+  color: #e06c75;
+}
+.markup.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.markup.heading {
+  color: #e06c75;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #61afef;
+}
+.markup.link {
+  color: #c678dd;
+}
+.markup.inserted {
+  color: #98c379;
+}
+.markup.quote {
+  color: #d19a66;
+}
+.markup.raw {
+  color: #98c379;
+}
+.source.cs .keyword.operator {
+  color: #c678dd;
+}
+.source.css .property-name,
+.source.css .property-value {
+  color: #828997;
+}
+.source.css .property-name.support,
+.source.css .property-value.support {
+  color: #abb2bf;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .link .entity {
+  color: #61afef;
+}
+.source.ini .keyword.other.definition.ini {
+  color: #e06c75;
+}
+.source.java .storage.modifier.import {
+  color: #e5c07b;
+}
+.source.java .storage.type {
+  color: #e5c07b;
+}
+.source.java-properties .meta.key-pair {
+  color: #e06c75;
+}
+.source.java-properties .meta.key-pair > .punctuation {
+  color: #abb2bf;
+}
+.source.js .keyword.operator {
+  color: #56b6c2;
+}
+.source.js .keyword.operator.delete,
+.source.js .keyword.operator.in,
+.source.js .keyword.operator.of,
+.source.js .keyword.operator.instanceof,
+.source.js .keyword.operator.new,
+.source.js .keyword.operator.typeof,
+.source.js .keyword.operator.void {
+  color: #c678dd;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #98c379;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #56b6c2;
+}
+.source.ruby .constant.other.symbol > .punctuation {
+  color: inherit;
+}
+.source.python .keyword.operator.logical.python {
+  color: #c678dd;
+}
+.source.python .variable.parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><p><div class="text" style=" text-align:center;"><h1>Intent</h1></div></p>
+<h3>1. 显示Intent和隐式Intent的区别</h3>
+<blockquote>
+<ul>
+<li><strong>显式Intent：</strong>通过组件名指定启动的目标组件,比如startActivity(new Intent(A.this,B.class)); 每次启动的组件只有一个
+</li><li><strong>隐式显式Intent:</strong>不指定组件名,而指定Intent的Action,Data,或Category,当我们启动组件时, 会去匹配AndroidManifest.xml相关组件的Intent-filter,逐一匹配出满足属性的组件,当不止一个满足时, 会弹出一个让我们选择启动哪个的对话框。
+</li></ul></blockquote>
+
+<h3>2. Intent的七个属性</h3>
+一、ComponentName（组件名称）<br><br>
+
+<img src="http://www.runoob.com/wp-content/uploads/2015/08/93994466.jpg" alt="">
+<br><br>
+二、Action（动作）<br><br>
+
+<img src="http://www.runoob.com/wp-content/uploads/2015/08/10976710.jpg" alt="">
+<br><br>
+三、Category(类别)<br><br>
+
+<img src="http://www.runoob.com/wp-content/uploads/2015/08/97975471.jpg" alt="">
+<br><br>
+四、Data(数据)，Type(MIME类型)<br><br>
+
+<img src="http://www.runoob.com/wp-content/uploads/2015/08/13299674.jpg" alt="">
+<br><br>
+五、Extra(额外)<br><br>
+
+<img src="http://www.runoob.com/wp-content/uploads/2015/08/19949418.jpg" alt="">
+<br><br>
+六、Flags（标记）<br><br>
+
+<img src="http://www.runoob.com/wp-content/uploads/2015/08/65852896.jpg" alt="">
+
+<h3>3. 显示Intent的使用例子</h3>
+
+<font color="ff0000">示例1：</font>
+
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;it&nbsp;=&nbsp;new&nbsp;Intent();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.setAction(Intent.ACTION_MAIN);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.addCategory(Intent.CATEGORY_HOME);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(it);</span></span></span></div></pre><font color="ff0000">示例2：</font>
+
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;it&nbsp;=&nbsp;new&nbsp;Intent();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.setAction(Intent.ACTION_VIEW);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.setData(Uri.parse(&quot;</span><span class="markup underline link http hyperlink"><span>http://www.baidu.com</span></span><span>&quot;));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(it);</span></span></span></div></pre><font color="ff0000">示例3：</font>
+
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;it&nbsp;=&nbsp;new&nbsp;Intent(ActivityA,ActivityB.class);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ActivityA.startIntent(it);</span></span></span></div></pre><h3>3. 隐式Intent</h3>
+<h4>3.1 隐式Intent解释</h4>
+通过设置Intent的属性，然后再根据属性过滤，找到对应的一个或者多个Activity（应用）。<br>
+
+<font color="ff0000">如图：</font><br>
+
+<img src="http://www.runoob.com/wp-content/uploads/2015/08/96004503.jpg" alt="">
+
+<h4>3.2 自定义隐式Intent</h4>
+Step1:<bolokquote><ul><em>代码示例：</em>使用自定义的Action与category来激活另一个Activity<br>
+<em>核心代码：</em> 建立第二个Activity的布局,与对应的Activity,在第一个Activity的按钮点击事件中添加一下代码:</ul>
+
+
+<code>Intent it = new Intent();
+it.setAction(&quot;my_action&quot;);
+it.addCategory(&quot;my_category&quot;);
+startActivity(it);</code>
+
+<br><br>
+Step2:<bolokquote><ul><em>最后在第二个Activity的Intent中添加以下代码:</em></ul>
+
+<code>&lt;activity android:name=&quot;.SecondActivity&quot;
+        android:label=&quot;第二个Activity&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;my_action&quot;/&gt;
+        &lt;category android:name=&quot;my_category&quot;/&gt;
+        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;
+    &lt;/intent-filter&gt;           
+&lt;/activity&gt;</code>
+
+<br><br>
+Step3:<bolokquote><ul><em>添加默认的category:</em></ul>
+
+<code>&lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;</code>
+
+<h3>3. 常用的系统Intent合集</h3>
+
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//1.拨打电话</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;给移动客服10086拨打电话</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;tel:10086&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_DIAL,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//2.发送短信</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;给10086发送内容为“Hello”的短信</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;smsto:10086&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_SENDTO,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;sms_body&quot;,&nbsp;&quot;Hello&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//3.发送彩信（相当于发送带附件的短信）</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_SEND);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;sms_body&quot;,&nbsp;&quot;Hello&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;content://media/external/images/media/23&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_STREAM,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setType(&quot;image/png&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//4.打开浏览器:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;打开百度主页</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;</span><span class="markup underline link http hyperlink"><span>http://www.baidu.com</span></span><span>&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_VIEW,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//5.发送电子邮件:(阉割了Google服务的没戏!!!!)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;给someone@domain.com发邮件</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;</span><span class="markup underline link hyperlink"><span>mailto:someone@domain.com</span></span><span>&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_SENDTO,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;给someone@domain.com发邮件发送内容为“Hello”的邮件</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_SEND);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_EMAIL,&nbsp;&quot;someone@domain.com&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_SUBJECT,&nbsp;&quot;Subject&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_TEXT,&nbsp;&quot;Hello&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setType(&quot;text/plain&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;给多人发邮件</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent=new&nbsp;Intent(Intent.ACTION_SEND);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>String[]&nbsp;tos&nbsp;=&nbsp;{&quot;1@abc.com&quot;,&nbsp;&quot;2@abc.com&quot;};&nbsp;//&nbsp;收件人</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>String[]&nbsp;ccs&nbsp;=&nbsp;{&quot;3@abc.com&quot;,&nbsp;&quot;4@abc.com&quot;};&nbsp;//&nbsp;抄送</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>String[]&nbsp;bccs&nbsp;=&nbsp;{&quot;5@abc.com&quot;,&nbsp;&quot;6@abc.com&quot;};&nbsp;//&nbsp;密送</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_EMAIL,&nbsp;tos);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_CC,&nbsp;ccs);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_BCC,&nbsp;bccs);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_SUBJECT,&nbsp;&quot;Subject&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Intent.EXTRA_TEXT,&nbsp;&quot;Hello&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setType(&quot;message/rfc822&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//6.显示地图:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;打开Google地图中国北京位置（北纬39.9，东经116.3）</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;geo:39.9,116.3&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_VIEW,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//7.路径规划</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;路径规划：从北京某地（北纬39.9，东经116.3）到上海某地（北纬31.2，东经121.4）</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;</span><span class="markup underline link http hyperlink"><span>http://maps.google.com/maps?f=d&amp;saddr=39.9</span></span><span>&nbsp;116.3&amp;daddr=31.2&nbsp;121.4&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_VIEW,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//8.多媒体播放:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_VIEW);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;</span><span class="markup underline link file hyperlink"><span>file:///sdcard/foo.mp3</span></span><span>&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setDataAndType(uri,&nbsp;&quot;audio/mp3&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//获取SD卡下所有音频文件,然后播放第一首=-=</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.withAppendedPath(MediaStore.Audio.Media.INTERNAL_CONTENT_URI,&nbsp;&quot;1&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_VIEW,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//9.打开摄像头拍照:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;打开拍照程序</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(MediaStore.ACTION_IMAGE_CAPTURE);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivityForResult(intent,&nbsp;0);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;取出照片数据</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Bundle&nbsp;extras&nbsp;=&nbsp;intent.getExtras();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Bitmap&nbsp;bitmap&nbsp;=&nbsp;(Bitmap)&nbsp;extras.get(&quot;data&quot;);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//另一种:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//调用系统相机应用程序，并存储拍下来的照片</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(MediaStore.ACTION_IMAGE_CAPTURE);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>time&nbsp;=&nbsp;Calendar.getInstance().getTimeInMillis();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(MediaStore.EXTRA_OUTPUT,&nbsp;Uri.fromFile(new&nbsp;File(Environment</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>.getExternalStorageDirectory().getAbsolutePath()+&quot;/tucue&quot;,&nbsp;time&nbsp;+&nbsp;&quot;.jpg&quot;)));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivityForResult(intent,&nbsp;ACTIVITY_GET_CAMERA_IMAGE);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//10.获取并剪切图片</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;获取并剪切图片</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_GET_CONTENT);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setType(&quot;image/*&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;crop&quot;,&nbsp;&quot;true&quot;);&nbsp;//&nbsp;开启剪切</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;aspectX&quot;,&nbsp;1);&nbsp;//&nbsp;剪切的宽高比为1：2</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;aspectY&quot;,&nbsp;2);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;outputX&quot;,&nbsp;20);&nbsp;//&nbsp;保存图片的宽和高</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;outputY&quot;,&nbsp;40);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;output&quot;,&nbsp;Uri.fromFile(new&nbsp;File(&quot;/mnt/sdcard/temp&quot;)));&nbsp;//&nbsp;保存路径</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;outputFormat&quot;,&nbsp;&quot;JPEG&quot;);//&nbsp;返回格式</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivityForResult(intent,&nbsp;0);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;剪切特定图片</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(&quot;com.android.camera.action.CROP&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setClassName(&quot;com.android.camera&quot;,&nbsp;&quot;com.android.camera.CropImage&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setData(Uri.fromFile(new&nbsp;File(&quot;/mnt/sdcard/temp&quot;)));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;outputX&quot;,&nbsp;1);&nbsp;//&nbsp;剪切的宽高比为1：2</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;outputY&quot;,&nbsp;2);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;aspectX&quot;,&nbsp;20);&nbsp;//&nbsp;保存图片的宽和高</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;aspectY&quot;,&nbsp;40);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;scale&quot;,&nbsp;true);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;noFaceDetection&quot;,&nbsp;true);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;output&quot;,&nbsp;Uri.parse(&quot;</span><span class="markup underline link file hyperlink"><span>file:///mnt/sdcard/temp</span></span><span>&quot;));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivityForResult(intent,&nbsp;0);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//11.打开Google&nbsp;Market</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;打开Google&nbsp;Market直接进入该程序的详细页面</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.parse(&quot;market://details?id=&quot;&nbsp;+&nbsp;&quot;com.demo.app&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_VIEW,&nbsp;uri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//12.进入手机设置界面:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//&nbsp;进入无线网络设置界面（其它可以举一反三）&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivityForResult(intent,&nbsp;0);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//13.安装apk:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;installUri&nbsp;=&nbsp;Uri.fromParts(&quot;package&quot;,&nbsp;&quot;xxx&quot;,&nbsp;null);&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>returnIt&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_PACKAGE_ADDED,&nbsp;installUri);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//14.卸载apk:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;uri&nbsp;=&nbsp;Uri.fromParts(&quot;package&quot;,&nbsp;strPackageName,&nbsp;null);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;it&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_DELETE,&nbsp;uri);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(it);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//15.发送附件:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;it&nbsp;=&nbsp;new&nbsp;Intent(Intent.ACTION_SEND);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(Intent.EXTRA_SUBJECT,&nbsp;&quot;The&nbsp;email&nbsp;subject&nbsp;text&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(Intent.EXTRA_STREAM,&nbsp;&quot;</span><span class="markup underline link file hyperlink"><span>file:///sdcard/eoe.mp3</span></span><span>&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>sendIntent.setType(&quot;audio/mp3&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(Intent.createChooser(it,&nbsp;&quot;Choose&nbsp;Email&nbsp;Client&quot;));</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//16.进入联系人页面:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setAction(Intent.ACTION_VIEW);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setData(People.CONTENT_URI);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//17.查看指定联系人:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Uri&nbsp;personUri&nbsp;=&nbsp;ContentUris.withAppendedId(People.CONTENT_URI,&nbsp;info.id);//info.id联系人ID</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setAction(Intent.ACTION_VIEW);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setData(personUri);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//18.调用系统编辑添加联系人（高版本SDK有效）：</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;it&nbsp;=&nbsp;newIntent(Intent.ACTION_INSERT_OR_EDIT);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.setType(&quot;vnd.android.cursor.item/contact&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//it.setType(Contacts.CONTENT_ITEM_TYPE);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(&quot;name&quot;,&quot;myName&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(android.provider.Contacts.Intents.Insert.COMPANY,&nbsp;&quot;organization&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(android.provider.Contacts.Intents.Insert.EMAIL,&quot;email&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(android.provider.Contacts.Intents.Insert.PHONE,&quot;homePhone&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(android.provider.Contacts.Intents.Insert.SECONDARY_PHONE,&quot;mobilePhone&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(&nbsp;android.provider.Contacts.Intents.Insert.TERTIARY_PHONE,&quot;workPhone&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>it.putExtra(android.provider.Contacts.Intents.Insert.JOB_TITLE,&quot;title&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(it);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//19.调用系统编辑添加联系人（全有效）：</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;newIntent(Intent.ACTION_INSERT_OR_EDIT);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setType(People.CONTENT_ITEM_TYPE);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Contacts.Intents.Insert.NAME,&nbsp;&quot;My&nbsp;Name&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Contacts.Intents.Insert.PHONE,&nbsp;&quot;+1234567890&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Contacts.Intents.Insert.PHONE_TYPE,Contacts.PhonesColumns.TYPE_MOBILE);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Contacts.Intents.Insert.EMAIL,&nbsp;&quot;com@com.com&quot;);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(Contacts.Intents.Insert.EMAIL_TYPE,&nbsp;Contacts.ContactMethodsColumns.TYPE_WORK);&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//20.打开另一程序</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;i&nbsp;=&nbsp;new&nbsp;Intent();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ComponentName&nbsp;cn&nbsp;=&nbsp;new&nbsp;ComponentName(&quot;com.example.jay.test&quot;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&quot;com.example.jay.test.MainActivity&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>i.setComponent(cn);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>i.setAction(&quot;android.intent.action.MAIN&quot;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivityForResult(i,&nbsp;RESULT_OK);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//21.打开录音机</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;mi&nbsp;=&nbsp;new&nbsp;Intent(Media.RECORD_SOUND_ACTION);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(mi);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//22.从google搜索内容</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setAction(Intent.ACTION_WEB_SEARCH);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(SearchManager.QUERY,&quot;searchString&quot;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//===============================================================</span></span></span></div></pre><p><h3>4. Intent复杂数据的传递</h3></p>
+<h4>4.1 Intent传递简单数据</h4>
+
+<p><img src="http://www.runoob.com/wp-content/uploads/2015/08/71858311.jpg" alt=""></p>
+<p><h4>4.2 Intent传递数组</h4>
+写入数组</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>bd.putStringArray(&quot;StringArray&quot;,&nbsp;new&nbsp;String[]{&quot;呵呵&quot;,&quot;哈哈&quot;});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//可把StringArray换成其他数据类型,比如int,float等等...</span></span></span></div></pre><p>读取数组</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>String[]&nbsp;str&nbsp;=&nbsp;bd.getStringArray(&quot;StringArray&quot;)</span></span></span></div></pre><p><h4>4.2 Intent传递集合</h4></p>
+<p><li>List&lt;基本数据或String&gt;</li></p>
+<p>写入数据</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putStringArrayListExtra(name,&nbsp;value)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putIntegerArrayListExtra(name,&nbsp;value)</span></span></span></div></pre><p>读取集合</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.getStringArrayListExtra(name)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.getIntegerArrayListExtra(name)</span></span></span></div></pre><p><li>List<object>(这里Object需实现serializable接口)</object></li></p>
+<p>将list强转成Serializable类型,然后传入(可用Bundle做媒介),采用序列化的模式。</p>
+<p>写入集合</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>putExtras(key,&nbsp;(Serializable)list)</span></span></span></div></pre><p>读取集合</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>(List&lt;Object&gt;)&nbsp;getIntent().getSerializable(key)</span></span></span></div></pre><p><li>Map<string, object="">,或更复杂的</string,></li></p>
+<p>解决方法是：外层套个List</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//传递复杂些的参数</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Map&lt;String,&nbsp;Object&gt;&nbsp;map1&nbsp;=&nbsp;new&nbsp;HashMap&lt;String,&nbsp;Object&gt;();&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>map1.put(&quot;key1&quot;,&nbsp;&quot;value1&quot;);&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>map1.put(&quot;key2&quot;,&nbsp;&quot;value2&quot;);&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>List&lt;Map&lt;String,&nbsp;Object&gt;&gt;&nbsp;list&nbsp;=&nbsp;new&nbsp;ArrayList&lt;Map&lt;String,&nbsp;Object&gt;&gt;();&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>list.add(map1);&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent&nbsp;=&nbsp;new&nbsp;Intent();&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.setClass(MainActivity.this,ComplexActivity.class);&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Bundle&nbsp;bundle&nbsp;=&nbsp;new&nbsp;Bundle();&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//须定义一个list用于在budnle中传递需要传递的ArrayList&lt;Object&gt;,这个是必须要的&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ArrayList&nbsp;bundlelist&nbsp;=&nbsp;new&nbsp;ArrayList();&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>bundlelist.add(list);&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>bundle.putParcelableArrayList(&quot;list&quot;,bundlelist);&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtras(bundle);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div></pre><p><h4>4.4 Intent传递对象</h4>
+传递对象的方式有两种：将对象转换为<em>Json</em>字符串或者通过<em>Serializable,Parcelable</em>序列化</p>
+<p><li>将对象转换成Json字符串</li></p>
+<font color="ff0000">示例：</font>
+
+<p>Model</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>public&nbsp;class&nbsp;Author{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>private&nbsp;int&nbsp;id;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;String&nbsp;name;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;//...</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>public&nbsp;class&nbsp;Author{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>private&nbsp;int&nbsp;id;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;String&nbsp;name;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;//...</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><p>写入数据</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Book&nbsp;book=new&nbsp;Book();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>book.setTitle(&quot;Java编程思想&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Author&nbsp;author=new&nbsp;Author();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>author.setId(1);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>author.setName(&quot;Bruce&nbsp;Eckel&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>book.setAuthor(author);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Intent&nbsp;intent=new&nbsp;Intent(this,SecondActivity.class);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>intent.putExtra(&quot;book&quot;,new&nbsp;Gson().toJson(book));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>startActivity(intent);</span></span></span></div></pre><p>读取数据</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>String&nbsp;bookJson=getIntent().getStringExtra(&quot;book&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Book&nbsp;book=new&nbsp;Gson().fromJson(bookJson,Book.class);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Log.d(TAG,&quot;book&nbsp;title-&gt;&quot;+book.getTitle());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Log.d(TAG,&quot;book&nbsp;author&nbsp;name-&gt;&quot;+book.getAuthor().getName());</span></span></span></div></pre><p><li>使用Serialization，Parcelable序列化对象</li></p>
+<p>Serializable实现流程：</p>
+<ol><li>业务Bean实现：Serializable接口,写上getter和setter方法
+</li><li>Intent通过调用putExtra(String name, Serializable value)传入对象实例 当然对象有多个的话多个的话,我们也可以先Bundle.putSerializable(x,x);
+</li><li>新Activity调用getSerializableExtra()方法获得对象实例: eg:Product pd = (Product) getIntent().getSerializableExtra(&quot;Product&quot;);
+</li><li>调用对象get方法获得相应参数</li></ol>
+
+<p>Parcelable实现流程：</p>
+<ol><li>业务Bean继承Parcelable接口,重写writeToParcel方法,将你的对象序列化为一个Parcel对象;
+</li><li>重写describeContents方法，内容接口描述，默认返回0就可以
+</li><li>实例化静态内部对象CREATOR实现接口Parcelable.Creator
+</li><li>同样式通过Intent的putExtra()方法传入对象实例,当然多个对象的话,我们可以先 放到Bundle里Bundle.putParcelable(x,x),再Intent.putExtras()即可</li></ol>
+</bolokquote></bolokquote></bolokquote></body>
+</html>
